@@ -15,6 +15,7 @@ import Drawer from "./components/layouts/Drawer";
 import * as loginActions from "./actions/login.action";
 import LoginPage from "./components/pages/LoginPage/LoginPage";
 import HomePage from "./components/pages/HomePage/HomePage";
+import PlanPRPage from "./components/pages/PlanPRPage";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -87,6 +88,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       <Switch>
         <LoginRoute exact path="/login" component={LoginPage} />
         <PrivateRoute exact path="/" component={HomePage} />
+        <PrivateRoute exact path="/plan_pr" component={PlanPRPage} />
       </Switch>
     </Router>
   )

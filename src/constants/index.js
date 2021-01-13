@@ -31,16 +31,16 @@ export const NETWORK_TIMEOUT_MESSAGE =
 export const UPLOAD_PHOTO_FAIL_MESSAGE =
   "An error has occurred. The photo was unable to upload.";
 
-// export const apiUrl = "http://localhost:8080/br_api/";
+export const apiUrl = "http://localhost:8080/test_api/";
 // export const apiUrl = "http://192.200.9.106:8080/br_api/";
-export const apiUrl = `${process.env.REACT_APP_API_URL}/br_api/`;
+// export const apiUrl = `${process.env.REACT_APP_API_URL}/br_api/`;
 // export const apiUrl = `${process.env.REACT_APP_API_URL}/br_apiv2/`;
 export const imageUrl = "http://localhost:8080";
 
 export const server = {
   LOGIN_URL: `api_auth/login`,
   COMPANY_URL: `api_data/company`,
-  COMPANYWITHCONODIVI_URL: `api_data/companywithconodivi`,
+  COMPANYWITHCONODIVI_URL: `test_api/companywithconodivi`,
 
   REFRESH_TOKEN_URL: `refresh/token`,
   TOKEN_KEY: `token`,
