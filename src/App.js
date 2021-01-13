@@ -39,45 +39,44 @@ const useStyles = makeStyles((theme) => ({
 export default function App() {
   const classes = useStyles();
 
+  // Login Route
+  const LoginRoute = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={(props) =>
+        loginActions.isLoggedIn() ? (
+          <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+        ) : (
+          <div className={classes.root}>
+            <Container className={classes.content} maxWidth={false}>
+              <Component {...props} />
+            </Container>
+          </div>
+        )
+      }
+    />
+  );
 
-// Login Route
-const LoginRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={(props) =>
-      loginActions.isLoggedIn() ? (
-        <Redirect to={{ pathname: "/", state: { from: props.location } }} />
-      ) : (
-        <div className={classes.root}>
-          <Container className={classes.content} maxWidth={false}>
-            <Component {...props} />
-          </Container>
-        </div>
-      )
-    }
-  />
-);
-
-//Private Route
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={(props) =>
-      loginActions.isLoggedIn() ? (
-        <div className={classes.root}>
-          <Drawer company={loginActions.getTokenCompany()} />
-          <Container className={classes.content} maxWidth={false}>
-            <Component {...props} />
-          </Container>
-        </div>
-      ) : (
-        <Redirect
-          to={{ pathname: "/login", state: { from: props.location } }}
-        />
-      )
-    }
-  />
-);
+  //Private Route
+  const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={(props) =>
+        loginActions.isLoggedIn() ? (
+          <div className={classes.root}>
+            <Drawer company={loginActions.getTokenCompany()} />
+            <Container className={classes.content} maxWidth={false}>
+              <Component {...props} />
+            </Container>
+          </div>
+        ) : (
+          <Redirect
+            to={{ pathname: "/login", state: { from: props.location } }}
+          />
+        )
+      }
+    />
+  );
 
   return (
     <Router
@@ -91,5 +90,5 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
         <PrivateRoute exact path="/plan_pr" component={PlanPRPage} />
       </Switch>
     </Router>
-  )
+  );
 }

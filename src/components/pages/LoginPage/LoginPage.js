@@ -42,7 +42,7 @@ const LoginPage = (props) => {
   const [alertDisable, setAlertDisable] = useState(false);
 
   useEffect(() => {
-    dispatch(companyActions.getCompanys());
+    dispatch(companyActions.getCompanys);
   }, []);
 
   const companys = useMemo(() =>
@@ -124,6 +124,7 @@ const LoginPage = (props) => {
   }) => {
     return (
       <form onSubmit={handleSubmit}>
+
         <TextField
           variant="outlined"
           margin="normal"
@@ -209,6 +210,9 @@ const LoginPage = (props) => {
 
   return (
     <Card className={classes.root}>
+
+  <p>#Debug prnumber {JSON.stringify(companys)}</p>
+
       <CardMedia
         className={classes.media}
         image={`${process.env.PUBLIC_URL}/images/duck.png`}
