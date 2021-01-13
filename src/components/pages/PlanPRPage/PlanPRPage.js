@@ -25,6 +25,7 @@ import SaveIcon from "@material-ui/icons/Save";
 import SendIcon from "@material-ui/icons/Send";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { red, green, purple } from "@material-ui/core/colors/";
+import * as prheadActions from "./../../../actions/prhead.action";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -77,14 +78,22 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: -12,
   },
 }));
+
+
 export default function PlanPRPage() {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const prheadReducer = useSelector(({ prheadReducer }) => prheadReducer);
+
+  useEffect(() => {
+    dispatch(prheadActions.getPRHeads())
+  }, [])
 
   return (
     <div className={classes.root}>
       <MaterialTable 
        id="root_pr"
-       title={`Plan MPR Stock & Non Stock : ${prhead.vStatus}`}
+       title={`Plan MPR Stock & Non Stock`}
       //  columns={columns}
       //  data={prdetailReducer.result ? prdetailReducer.result : []}
       />
