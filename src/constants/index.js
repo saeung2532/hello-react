@@ -4,11 +4,17 @@ export const HTTP_COMPANY_FAILED = "HTTP_COMPANY_FAILED";
 export const HTTP_COMPANY_SUCCESS = "HTTP_COMPANY_SUCCESS";
 export const HTTP_COMPANY_CLEAR = "HTTP_COMPANY_CLEAR";
 
-// Login Page
+// LOGIN
 export const HTTP_LOGIN_FETCHING = "HTTP_LOGIN_FETCHING";
 export const HTTP_LOGIN_FAILED = "HTTP_LOGIN_FAILED";
 export const HTTP_LOGIN_SUCCESS = "HTTP_LOGIN_SUCCESS";
 export const HTTP_LOGIN_LOGOUT = "HTTP_LOGIN_LOGOUT";
+
+// PRHEAD
+export const HTTP_PRHEAD_FETCHING = "HTTP_PRHEAD_FETCHING";
+export const HTTP_PRHEAD_FAILED = "HTTP_PRHEAD_FAILED";
+export const HTTP_PRHEAD_SUCCESS = "HTTP_PRHEAD_SUCCESS";
+export const HTTP_PRHEAD_LOGOUT = "HTTP_PRHEAD_LOGOUT";
 
 
 // Error Code
@@ -40,7 +46,8 @@ export const imageUrl = "http://localhost:8080";
 export const server = {
   LOGIN_URL: `api_auth/login`,
   COMPANY_URL: `api_data/company`,
-  COMPANYWITHCONODIVI_URL: `test_api/companywithconodivi`,
+  COMPANYWITHCONODIVI_URL: `api_data/companywithconodivi`,
+  PRHEAD_URL: `api_data/prhead01`,
 
   REFRESH_TOKEN_URL: `refresh/token`,
   TOKEN_KEY: `token`,

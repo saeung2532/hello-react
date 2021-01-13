@@ -42,7 +42,7 @@ const LoginPage = (props) => {
   const [alertDisable, setAlertDisable] = useState(false);
 
   useEffect(() => {
-    dispatch(companyActions.getCompanys);
+    dispatch(companyActions.getCompanys());
   }, []);
 
   const companys = useMemo(() =>
@@ -124,7 +124,6 @@ const LoginPage = (props) => {
   }) => {
     return (
       <form onSubmit={handleSubmit}>
-
         <TextField
           variant="outlined"
           margin="normal"
@@ -210,8 +209,7 @@ const LoginPage = (props) => {
 
   return (
     <Card className={classes.root}>
-
-  <p>#Debug prnumber {JSON.stringify(companys)}</p>
+      {/* <p>#Debug prnumber {JSON.stringify(companys)}</p> */}
 
       <CardMedia
         className={classes.media}
@@ -220,7 +218,7 @@ const LoginPage = (props) => {
       />
 
       <CardContent>
-        {/* <p>#Debug prhead {JSON.stringify(company)}</p> */}
+        {/* <p>#Debug prhead {JSON.stringify(companys)}</p> */}
         <Typography variant="h5">Login Monthly Plan</Typography>
         {/* HOC */}
         <Formik
