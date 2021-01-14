@@ -79,15 +79,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 export default function PlanPRPage() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const prheadReducer = useSelector(({ prheadReducer }) => prheadReducer);
 
   useEffect(() => {
-    dispatch(prheadActions.getPRHeads())
-  }, [])
+    dispatch(prheadActions.getPRHeads());
+  }, []);
 
   const columns = [
     {
@@ -185,14 +184,27 @@ export default function PlanPRPage() {
   ];
 
   return (
-
     <div className={classes.root}>
-    {/* <p>#Debug prhead {JSON.stringify(prheadReducer.result)}</p> */}
-      <MaterialTable 
-       id="root_pr"
-       title={`Plan MPR Stock & Non Stock`}
-       columns={columns}
-       data={prheadReducer.result ? prheadReducer.result : []}
+      {/* <p>#Debug prhead {JSON.stringify(prheadReducer.result)}</p> */}
+
+      <from>
+        <Grid container style={{ marginBottom: 2 }} spacing={5}>
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>
+            <TextField></TextField>
+
+
+              
+            </Paper>
+          </Grid>
+        </Grid>
+      </from>
+
+      <MaterialTable
+        id="root_pr"
+        title={`Plan MPR Stock & Non Stock`}
+        columns={columns}
+        data={prheadReducer.result ? prheadReducer.result : []}
       />
     </div>
   );
