@@ -16,6 +16,11 @@ export const HTTP_PRHEAD_FAILED = "HTTP_PRHEAD_FAILED";
 export const HTTP_PRHEAD_SUCCESS = "HTTP_PRHEAD_SUCCESS";
 export const HTTP_PRHEAD_CLEAR = "HTTP_PRHEAD_CLEAR";
 
+// PRNUMBER
+export const HTTP_PRNUMBER_FETCHING = "HTTP_PRNUMBER_FETCHING";
+export const HTTP_PRNUMBER_FAILED = "HTTP_PRNUMBER_FAILED";
+export const HTTP_PRNUMBER_SUCCESS = "HTTP_PRNUMBER_SUCCESS";
+export const HTTP_PRNUMBER_CLEAR = "HTTP_PRNUMBER_CLEAR";
 
 // Error Code
 export const E_PICKER_CANCELLED = "E_PICKER_CANCELLED";
@@ -48,6 +53,7 @@ export const server = {
   COMPANY_URL: `api_data/company`,
   COMPANYWITHCONODIVI_URL: `api_data/companywithconodivi`,
   PRHEAD_URL: `api_data/prhead01`,
+  PRHEADNUMBER_URL: `api_data/prheadnumber`,
 
   REFRESH_TOKEN_URL: `refresh/token`,
   TOKEN_KEY: `token`,

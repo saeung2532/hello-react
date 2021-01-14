@@ -43,4 +43,23 @@ import {
     }
   };
 
+  export const getPRHeadNumbers = () => {
+    return async (dispatch) => {
+      dispatch(setStatePRHeadToFetching());
+      doGetPRHeadNumbers(dispatch);
+    };
+  };
+  
+  const doGetPRHeadNumbers = async (dispatch) => {
+    try {
+      let result = await httpClient.get(server.PRHEADNUMBER_URL);
+      dispatch(setStatePRHeadToSuccess(result.data));
+      // alert(JSON.stringify(result.data));
+    } catch (err) {
+      alert(JSON.stringify(err));
+      dispatch(setStatePRHeadToFailed());
+    }
+  };
+
+
 

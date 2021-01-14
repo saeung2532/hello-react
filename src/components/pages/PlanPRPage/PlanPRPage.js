@@ -26,6 +26,7 @@ import SendIcon from "@material-ui/icons/Send";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { red, green, purple } from "@material-ui/core/colors/";
 import * as prheadActions from "./../../../actions/prhead.action";
+import * as prnumberActions from "./../../../actions/prnumber.action";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -83,9 +84,13 @@ export default function PlanPRPage() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const prheadReducer = useSelector(({ prheadReducer }) => prheadReducer);
+  const prnumberReducer = useSelector(({ prnumberReducer }) => prnumberReducer);
+
+  const prnumbers = prnumberReducer.result ? prnumberReducer.result : [];
 
   useEffect(() => {
-    dispatch(prheadActions.getPRHeads());
+    // dispatch(prheadActions.getPRHeads());
+    dispatch(prnumberActions.getPRHeadNumbers());
   }, []);
 
   const columns = [
@@ -185,16 +190,42 @@ export default function PlanPRPage() {
 
   return (
     <div className={classes.root}>
-      {/* <p>#Debug prhead {JSON.stringify(prheadReducer.result)}</p> */}
+      {JSON.stringify(prnumbers)}
 
       <from>
         <Grid container style={{ marginBottom: 2 }} spacing={5}>
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-            <TextField></TextField>
-
-
-              
+              <TextField
+                error={true}
+                fullWidth
+                select
+                size="small"
+                variant="outlined"
+                required
+                id="vSelectPRNumber"
+                label="MPR Number"
+                // disabled={searchdisable}
+                // value={prnumber.vPRSelectNumber}
+                // onChange={(event) => {
+                //   // console.log(event.target.value);
+                //   setPRNumber({
+                //     ...prnumber,
+                //     vPRSelectNumber: event.target.value,
+                //   });
+                // }}
+                InputLabelProps={{ shrink: true }}
+                SelectProps={{
+                  native: true,
+                }}
+              >
+                <option />
+                {prnumbers.map((option) => (
+                  <option key={option.ID} value={option.HD_IBPLPN}>
+                    {option.HD_IBPLPN}
+                  </option>
+                ))}
+              </TextField>
             </Paper>
           </Grid>
         </Grid>
