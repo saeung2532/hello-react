@@ -89,13 +89,110 @@ export default function PlanPRPage() {
     dispatch(prheadActions.getPRHeads())
   }, [])
 
+  const columns = [
+    {
+      title: "CONO",
+      field: "HD_IBCONO",
+      headerStyle: { maxWidth: 50, whiteSpace: "nowrap", textAlign: "center" },
+      cellStyle: {
+        textAlign: "center",
+        borderLeft: 1,
+        borderRight: 1,
+        borderBottom: 1,
+        borderTop: 1,
+        borderColor: "#E0E0E0",
+        borderStyle: "solid",
+        paddingLeft: "6px",
+        paddingRight: "6px",
+        paddingBottom: "12px",
+        paddingTop: "12px",
+      },
+      render: (item) => (
+        <Typography variant="body1" noWrap>
+          {item.HD_IBCONO}
+        </Typography>
+      ),
+    },
+    {
+      title: "DIVI",
+      field: "HD_IBDIVI",
+      headerStyle: { maxWidth: 50, whiteSpace: "nowrap", textAlign: "center" },
+      cellStyle: {
+        textAlign: "center",
+        borderLeft: 1,
+        borderRight: 1,
+        borderBottom: 1,
+        borderTop: 1,
+        borderColor: "#E0E0E0",
+        borderStyle: "solid",
+        paddingLeft: "6px",
+        paddingRight: "6px",
+        paddingBottom: "12px",
+        paddingTop: "12px",
+      },
+      render: (item) => (
+        <Typography variant="body1" noWrap>
+          {item.HD_IBDIVI}
+        </Typography>
+      ),
+    },
+    {
+      title: "PR NUMBER",
+      field: "HD_IBPLPN",
+      headerStyle: { maxWidth: 50, whiteSpace: "nowrap", textAlign: "center" },
+      cellStyle: {
+        textAlign: "center",
+        borderLeft: 1,
+        borderRight: 1,
+        borderBottom: 1,
+        borderTop: 1,
+        borderColor: "#E0E0E0",
+        borderStyle: "solid",
+        paddingLeft: "6px",
+        paddingRight: "6px",
+        paddingBottom: "12px",
+        paddingTop: "12px",
+      },
+      render: (item) => (
+        <Typography variant="body1" noWrap>
+          {item.HD_IBPLPN}
+        </Typography>
+      ),
+    },
+    {
+      title: "REQUE",
+      field: "HD_IBPURC",
+      headerStyle: { maxWidth: 50, whiteSpace: "nowrap", textAlign: "center" },
+      cellStyle: {
+        textAlign: "center",
+        borderLeft: 1,
+        borderRight: 1,
+        borderBottom: 1,
+        borderTop: 1,
+        borderColor: "#E0E0E0",
+        borderStyle: "solid",
+        paddingLeft: "6px",
+        paddingRight: "6px",
+        paddingBottom: "12px",
+        paddingTop: "12px",
+      },
+      render: (item) => (
+        <Typography variant="body1" noWrap>
+          {item.HD_IBPURC}
+        </Typography>
+      ),
+    },
+  ];
+
   return (
+
     <div className={classes.root}>
+    {/* <p>#Debug prhead {JSON.stringify(prheadReducer.result)}</p> */}
       <MaterialTable 
        id="root_pr"
        title={`Plan MPR Stock & Non Stock`}
-      //  columns={columns}
-      //  data={prdetailReducer.result ? prdetailReducer.result : []}
+       columns={columns}
+       data={prheadReducer.result ? prheadReducer.result : []}
       />
     </div>
   );
